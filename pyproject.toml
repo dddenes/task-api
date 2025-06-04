@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "task_api"
+version = "0.1.0"
+description = "Async Task Management API with Background Processing"
+authors = ["Dénes Surman <surmandenes@yahoo.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+alembic = "^1.16.1"
+asyncpg = "^0.30.0"
+fastapi = "^0.115.12"
+fastapi-pagination = "^0.13.1"
+pydantic = "^2.11.5"
+python = "^3.12.3"
+python-dotenv = "^1.1.0"
+sqlalchemy = {extras = ["asyncio"], version = "^2.0.41"}
+uvicorn = {extras = ["standard"], version = "^0.34.3"}
+
+[tool.poetry.group.dev.dependencies]
+httpx = "^0.28.1"
+pytest = "^8.4.0"
+pytest-asyncio = "^1.0.0"
+aiosqlite = "^0.21.0"
+pylint = "^3.3.4"
+pytest-cov = "^6.0.0"
