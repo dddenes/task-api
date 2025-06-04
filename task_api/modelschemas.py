@@ -31,7 +31,6 @@ class TaskGet(TaskBase):
 class TaskCreate(TaskBase):
     """Modelschema used for creating new tasks
     """
-    pass
 
 
 class TaskUpdate(BaseModel):

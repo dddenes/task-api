@@ -30,6 +30,7 @@ def app():
 async def override_get_session():
     """Fixture to override the original sessions to conform the testing env
     """
+
     async def _override_get_session():
         async with TestSessionLocal() as session:
             yield session
@@ -37,9 +38,11 @@ async def override_get_session():
     return _override_get_session
 
 
-# Adatbázis inicializálás minden teszt futása előtt
 @pytest_asyncio.fixture(scope="session", autouse=True)
 async def setup_test_db():
+    """Build a test DB and drop it after test runs
+    """
+
     async with test_engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
 
@@ -51,6 +54,8 @@ async def setup_test_db():
 
 @pytest_asyncio.fixture
 async def async_client(override_get_session, app):
+    """Fixture to return an async client for api calls
+    """
     app.dependency_overrides[get_session] = override_get_session
 
     transport = ASGITransport(app=app)

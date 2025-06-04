@@ -1,3 +1,5 @@
+"""Backround tasks to run
+"""
 import logging
 from functools import wraps
 
@@ -16,6 +18,7 @@ def background_task_wrapper(func):
             print(args[0])
         except Exception as e:
             logger.exception(f"Exception in background task {func.__name__} task_id: {args[0]}: {e}")
+
     return wrapper
 
 
@@ -24,4 +27,5 @@ async def process_task(task_id: int):
     """A sample background task to run"""
 
     print(f'Processing task {task_id}')
+
     await asyncio.sleep(5)

@@ -12,6 +12,9 @@ logger = logging.getLogger(__name__)
 
 
 def create_app() -> FastAPI:
+    """Factory for creating the FastAPI application
+    """
+
     logger.info('Starting of the Task API app...')
 
     app = FastAPI(title="Task API")

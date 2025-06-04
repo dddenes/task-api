@@ -1,3 +1,6 @@
+"""API endpoints for task_logs
+"""
+
 from fastapi import APIRouter, Depends
 from fastapi_pagination import Page, paginate
 from sqlalchemy import select

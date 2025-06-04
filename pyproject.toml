@@ -23,3 +23,39 @@ pytest-asyncio = "^1.0.0"
 aiosqlite = "^0.21.0"
 pylint = "^3.3.4"
 pytest-cov = "^6.0.0"
+
+[tool.pylint.master]
+ignore-paths = '^alembic/.*$'
+
+[tool.pylint.exceptions]
+overgeneral-exceptions = ["builtins.Exception"]
+
+[tool.pylint.format]
+max-line-length = 120
+
+[tool.pylint.messages_control]
+disable = [
+    "abstract-method",
+    "bad-inline-option",
+    "bad-mcs-method-argument",
+    "broad-exception-caught",
+    "cyclic-import",
+    "dangerous-default-value",
+    "deprecated-pragma",
+    "file-ignored",
+    "fixme",
+    "import-outside-toplevel",
+    "invalid-metaclass",
+    "invalid-name",
+    "locally-disabled",
+    "logging-fstring-interpolation",
+    "no-member",
+    "raw-checker-failed",
+    "redefined-outer-name",
+    "suppressed-message",
+    "too-few-public-methods",
+    "unsubscriptable-object",
+    "unused-argument",
+    "use-symbolic-message-instead",
+    "useless-suppression",
+]
